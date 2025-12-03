@@ -10,10 +10,6 @@ What the system does
 
 Why it was created
 
-The core problem it solves
-
-The overall workflow
-
 - **architecture.md** Detailed technical explanation of the system architecture:
 
 Components involved
@@ -36,8 +32,6 @@ Data flow diagram
 
 Automation pipeline
 
-Interaction between nodes (n8n → OpenAI → Sheets)
-
 - **features.md** Documentation of all system features:
 
 Smart resume parsing
@@ -51,5 +45,3 @@ Cover-letter generator
 Duplicate job detection
 
 Google Sheets integration
-
-Automatic daily job scanning
