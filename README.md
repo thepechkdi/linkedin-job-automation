@@ -1,6 +1,6 @@
 # 🤖 LinkedIn-Job-Automation
 
-Automate your entire job application pipeline using **n8n + OpenAI + Google Sheets**.  
+Automate your entire job application pipeline using **Automation + OpenAI + Google Sheets**.  
 From collecting job posts → matching your skills → generating a cover letter → saving everything in a sheet.
 
 ---
@@ -15,7 +15,7 @@ This project is a fully automated workflow that:
 - Generates a **personalized cover letter**  
 - Updates a **Google Sheet** with all results
 
-Built as part of my AI & automation learning journey at **ISMONCTIC / ISMONTIC MA**.
+Built as part of my AI & automation learning journey at **ISMONCTIC - MA**.
 
 ---
 
@@ -24,7 +24,7 @@ Built as part of my AI & automation learning journey at **ISMONCTIC / ISMONTIC M
 - Save time on repetitive job applications  
 - Get **consistent & high-quality** cover letters  
 - Keep an organized history of all applications  
-- Practice real-world **AI Agents + n8n + APIs**
+- Practice real-world **AI Agents + Automation + APIs**
 
 ---
 
@@ -72,3 +72,7 @@ Built as part of my AI & automation learning journey at **ISMONCTIC / ISMONTIC M
 
 ---
 
+
+## 💬 Author
+
+Created by Ya Ha — student in Artificial Intelligence at ISMONTIC Tangier 🇲🇦
