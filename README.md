@@ -76,3 +76,7 @@ Built as part of my AI & automation learning journey at **ISMONCTIC - MA**.
 ## 💬 Author
 
 Created by Ya Ha — student in Artificial Intelligence at ISMONTIC Tangier 🇲🇦
+LinkedIn: https://www.linkedin.com/in/yahya-hafid
+
+
+
