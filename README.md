@@ -1,160 +1,85 @@
-#AI-Powered LinkedIn Job Application Automation
+# 🤖 LinkedIn-Job-Automation
 
-Automate your entire job search using n8n, OpenAI, and Google Sheets.
+Automate your entire job application pipeline using **n8n + OpenAI + Google Sheets**.  
+From collecting job posts → matching your skills → generating a cover letter → saving everything in a sheet.
 
-This workflow collects job posts, analyzes them, matches skills with your resume, generates personalized cover letters, and updates a Google Sheet automatically — all without writing code.
+---
 
-📌 Features
-✅ Automated Job Collection
+## 🧩 Overview
 
-Fetch LinkedIn job posts using RSS
+This project is a fully automated workflow that:
 
-Extract title, company, job description, skills, location
+- Finds job offers from **LinkedIn (RSS)**  
+- Reads and structures your **resume (CV)**  
+- Compares job requirements with your skills  
+- Generates a **personalized cover letter**  
+- Updates a **Google Sheet** with all results
 
-✅ Resume Parsing
+Built as part of my AI & automation learning journey at **ISMONCTIC / ISMONTIC MA**.
 
-Converts your resume into structured JSON
+---
 
-Extracts skills, experience, education, achievements
+## 🎯 Project Goals
 
-✅ Skill Matching
+- Save time on repetitive job applications  
+- Get **consistent & high-quality** cover letters  
+- Keep an organized history of all applications  
+- Practice real-world **AI Agents + n8n + APIs**
 
-Returns JSON:
+---
 
+## ⚙️ Main Features
+
+- 🔎 **Job scraping** via LinkedIn RSS feed  
+- 📄 **Resume structuring** with OpenAI  
+- 🧠 **Skill match analysis** (matching & missing skills)  
+- 📝 **One-page cover letter** auto-generated for each job  
+- 📊 **Google Sheets sync** (job details, match score, cover letter)  
+- 🔁 **Caching** to avoid re-processing the same CV  
+
+---
+
+## 🧱 Architecture & Workflow
+
+1. **Generate Hash (Caching)**  
+   - Creates a unique hash from your resume content  
+   - Used to check if the resume was already structured
+
+2. **Loop Over Items**  
+   - Processes each job posting one by one
+
+3. **Structure Resume CV** (OpenAI)  
+   - Converts raw CV text into JSON:
+   - `skills`, `experience`, `education`, `projects`, etc.
+
+4. **Merge Job + Resume**  
+   - Combines:
+     - `job` → job description, skills, company, location  
+     - `resume` → structured CV  
+
+5. **Create Match & Cover Letter** (OpenAI)  
+   - Returns:
+     - JSON with `matching_skills`, `missing_skills`, `summary`  
+     - A professional one-page cover letter
+
+6. **Update Row in Sheet**  
+   - Writes:
+     - Job ID  
+     - Company name  
+     - Position  
+     - Skill match highlights  
+     - Cover letter text  
+
+---
+
+## 🧠 AI Prompt (Core Logic)
+
+The main OpenAI prompt does **two tasks**:
+
+1. **Skill Match Evaluation** – outputs JSON:
+```json
 {
   "matching_skills": [],
   "missing_skills": [],
   "summary": ""
 }
-
-✅ AI-Generated Cover Letters
-
-Creates a personalized, professional one-page cover letter using job + resume data.
-
-✅ Google Sheets Integration
-
-Automatically saves:
-
-Job ID
-
-Company
-
-Matching skills
-
-Skill match score
-
-AI-generated cover letter
-
-📂 Repository Structure
-📁 docs/               → Documentation & architecture
-📁 screenshots/        → Workflow screenshots
-📁 prompts/            → OpenAI prompt templates
-📁 workflow/           → n8n workflow JSON export
-README.md              → Main documentation
-
-🧠 Technologies Used
-Tool	Purpose
-n8n	Workflow automation
-OpenAI (GPT-4o, GPT-4o-mini)	AI reasoning & cover letters
-Google Sheets API	Saving job applications
-LinkedIn RSS	Getting job listings
-⚙️ Workflow Overview
-
-Extract job postings
-
-Parse resume using OpenAI
-
-Merge job + resume
-
-AI analyzes skills
-
-AI generates cover letter
-
-Google Sheets saves results
-
-🧾 Main Prompt (Skill Match + Cover Letter)
-You are a job application assistant.
-
-You will be given structured data including:
-- A job posting with its role description, requirements, skills, and company metadata.
-- A candidate’s resume including skills, experience, and achievements.
-
-Your task has two parts:
-
-------------------------------------------------------------
-1. Skill Match Evaluation
-
-Return ONLY this JSON object:
-
-{
-  "matching_skills": [],
-  "missing_skills": [],
-  "summary": ""
-}
-
-matching_skills = skills appearing in both job.skills_and_tech and resume.skills.  
-missing_skills = job-required skills missing from resume.  
-summary = 3–4 sentences summarizing the match.
-
-------------------------------------------------------------
-2. Cover Letter Generation
-
-Generate a tailored one-page cover letter.  
-Must include:
-
-[Your Name]  
-[City, Country]  
-[Email]  
-[Phone]  
-
-[Date]  
-[Company Name]  
-[Company Location]  
-
-Dear Hiring Manager,  
-(4 paragraphs…)  
-Kind regards,  
-[Your Name]
-
-------------------------------------------------------------
-INPUT DATA:
-
-{
-  "job": {{ $json["job"] }},
-  "resume": {{ $json["resume"] }}
-}
-
-RULES:
-- First output the JSON
-- Then output the cover letter
-- No code blocks
-- No extra commentary
-
-📝 Setup Instructions
-Clone the repository
-git clone https://github.com/thepechkdi/linkedin-job-automation.git
-
-Launch n8n (Docker recommended)
-docker run -it --rm -p 5678:5678 n8nio/n8n
-
-Import workflow
-
-Upload /workflow/job-automation.json inside n8n.
-
-Add credentials
-
-OpenAI API key
-
-Google Sheets OAuth2
-
-LinkedIn RSS source
-
-📸 Screenshots
-
-All screenshots are in /screenshots.
-
-👨‍💻 Author
-
-Yahya Hafid
-AI Engineer & Automation Builder
-🔗 https://www.linkedin.com/in/yahya-hafid
