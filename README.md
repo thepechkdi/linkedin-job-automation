@@ -72,14 +72,3 @@ Built as part of my AI & automation learning journey at **ISMONCTIC / ISMONTIC M
 
 ---
 
-## 🧠 AI Prompt (Core Logic)
-
-The main OpenAI prompt does **two tasks**:
-
-1. **Skill Match Evaluation** – outputs JSON:
-```json
-{
-  "matching_skills": [],
-  "missing_skills": [],
-  "summary": ""
-}
