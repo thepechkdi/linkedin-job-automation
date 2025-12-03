@@ -1,4 +1,4 @@
-# 🤖 LinkedIn-Job-Automation
+# 🤖 Job-search-automation
 
 Automate your entire job application pipeline using **Automation + OpenAI + Google Sheets**.  
 From collecting job posts → matching your skills → generating a cover letter → saving everything in a sheet.
