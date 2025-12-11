@@ -14,7 +14,7 @@ Why it was created?
 
 Components involved
 
-OpenAI + n8n integration
+OpenAI 
 
 Google Sheets data flows
 
